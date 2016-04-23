@@ -29,22 +29,22 @@
     <div class="step slide" data-x="-1000" data-y="0">
         <q>What is a bytebeat?</q>
         <p>a waveform calculated as a function of time</p>
-        <p>taking into account the output sample rate and bit depth</p>
     </div>
 
     <div class="step slide" data-x="000" data-y="0">
-        <q>That means a typical bytebeat</q>
+        <q>A typical bytebeat</q>
         <ul>
         <li>has no score</li>
         <li>uses integer arithmetic</li>
         <li>has no concept of instruments</li>
+        <li>uses output sample rate and bit depth</li>
         <li>is a one-liner in the language of your choice</li>
         </ul>
     </div>
 
     <div class="step slide" data-x="1000" data-y="0">
         <q>Simple example at 8khz, 8bit</q>
-        <p>((t &gt;&gt; 11) &amp; 3) * t</p><br/>
+        <p>((t &gt;&gt; 11) % 4) * t</p><br/>
         <ul>
         <li>implicit % 255 because of unsigned char</li>
         <li>therefore t produces a sawtooth at 8000 / 255 =~ 31Hz</li>
@@ -53,10 +53,32 @@
     </div>
 
     <div class="step slide" data-x="2000" data-y="0">
-        <q>Operations</q>
+        <q>Simple example at 8khz, 8bit</q>
+        <p>((t &gt;&gt; 11) &amp; 3) * t</p><br/>
+        <img src="saw.png" style="width:80%;"/>
     </div>
 
     <div class="step slide" data-x="3000" data-y="0">
+        <q>Sierpinsky Harmonies with bit operators</q>
+        <p>(t &gt;&gt; 5) & t</p><br/>
+        <ul>
+          <li>creates complex harmonies of square waves</li>
+          <li>in octaves, if using shift operator</li>
+          <li>but not when using arbitrary multiplication/division</li>
+        </ul>
+    </div>
+
+    <div class="step slide" data-x="4000" data-y="0">
+        <q>Sierpinsky Harmonies with bit operators</q>
+        <img src="sierpinsky.png" style="width:60%;"/>
+    </div>
+
+    <div class="step slide" data-x="5000" data-y="0">
+        <q>Sierpinsky Harmonies with bit operators</q>
+        <img src="spectrum.png" style="width:60%;"/>
+    </div>
+
+    <div class="step slide" data-x="6000" data-y="0">
         <q>Variations & related</q>
 
         <ul>
@@ -65,14 +87,14 @@
         </ul>
     </div>
 
-    <div class="step slide" data-x="4000" data-y="0">
+    <div class="step slide" data-x="7000" data-y="0">
         <q>Links</q>
         <ul>
         <li/><a href="http://canonical.org/~kragen/bytebeat/">A very good overview with lots of links</a>
         <li/><a href="http://arxiv.org/abs/1112.1368">A paper explaining c-operation in bytebeat context</a>
         <li/><a href="http://blog.robertelder.org/bash-one-liner-compose-music/">Music from dev random</a>
         <li/><a href="http://wurstcaptures.untergrund.net/music/">Online tool for fast experimentation</a>
-        <li/><a href="http://greggman.com/downloads/examples/html5bytebeat/html5bytebeat.html">More elaborate live coding</a>
+        <li/><a href="http://greggman.com/downloads/examples/html5bytebeat/html5bytebeat.html">More elaborate live cod<>ing</a>
         <li/><a href="https://www.youtube.com/watch?v=vCEUyx-SxPw"> Making music with a C compiler</a>
         <li/><a href="https://www.youtube.com/watch?v=tCRPUv8V22o&list=RDtCRPUv8V22o#t=227">Youtube collection shown in this talk</a>(older collections available too)
         </ul>
